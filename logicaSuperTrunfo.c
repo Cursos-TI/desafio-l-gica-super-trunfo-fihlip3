@@ -27,6 +27,8 @@ int main() {
     float densidade2;
     float pibPerCapita2;
 
+    int opcao;
+
     // Cálculos
     densidade1 = (float)populacao1 / area1;
     pibPerCapita1 = (pib1 * 1000000000.0) / (float)populacao1;
@@ -63,15 +65,102 @@ int main() {
     printf("\n================XXX================\n");
     printf("          BATALHA DE CARTAS\n");
     printf("================XXX================\n\n");
-    printf("Comparando a população das duas cidades...\n");
-    if (populacao1 > populacao2) {
-        printf("Resultado: Carta 1 (%s) venceu!\n", cidade1);
-    } 
-    else if (populacao2 > populacao1) {
-        printf("Resultado: Carta 2 (%s) venceu!\n", cidade2);
-    } 
-    else {
-        printf("Resultado: Empate! As duas cidades têm a mesma população.\n");
+    printf("Escolha o atributo para iniciar a batalha:\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Pontos turísticos\n");
+    printf("5. Densidade demográfica\n\n");
+    
+    printf("Digite o número da sua escolha: ");
+    scanf("%d", &opcao);
+
+    printf("\n=======================================\n");
+
+    switch (opcao) {
+        case 1:
+            printf("Batalha de população!\n");
+            printf("%s: %lu habitantes\n", cidade1, populacao1);
+            printf("%s: %lu habitantes\n\n", cidade2, populacao2);
+
+            if (populacao1 == populacao2) {
+                printf("Resultado: Empate!\n");
+            } else {
+                if (populacao1 > populacao2) {
+                    printf("Resultado: a carta 1 (%s) venceu!\n", cidade1);
+                } else {
+                    printf("Resultado: a carta 2 (%s) venceu!\n", cidade2);
+                }
+            }
+            break;
+
+        case 2:
+            printf("Batalha de área!\n");
+            printf("%s: %.2f km²\n", cidade1, area1);
+            printf("%s: %.2f km²\n\n", cidade2, area2);
+
+            if (area1 == area2) {
+                printf("Resultado: Empate!\n");
+            } else {
+                if (area1 > area2) {
+                    printf("Resultado: a carta 1 (%s) venceu!\n", cidade1);
+                } else {
+                    printf("Resultado: a carta 2 (%s) venceu!\n", cidade2);
+                }
+            }
+            break;
+
+        case 3:
+            printf("Batalha de PIB!\n");
+            printf("%s: %.2f bilhões\n", cidade1, pib1);
+            printf("%s: %.2f bilhões\n\n", cidade2, pib2);
+
+            if (pib1 == pib2) {
+                printf("Resultado: Empate!\n");
+            } else {
+                if (pib1 > pib2) {
+                    printf("Resultado: a carta 1 (%s) venceu!\n", cidade1);
+                } else {
+                    printf("Resultado: a carta 2 (%s) venceu!\n", cidade2);
+                }
+            }
+            break;
+
+        case 4:
+            printf("Batalha de pontos turísticos!\n");
+            printf("%s: %d pontos\n", cidade1, pontosTuristicos1);
+            printf("%s: %d pontos\n\n", cidade2, pontosTuristicos2);
+
+            if (pontosTuristicos1 == pontosTuristicos2) {
+                printf("Resultado: Empate!\n");
+            } else {
+                if (pontosTuristicos1 > pontosTuristicos2) {
+                    printf("Resultado: a carta 1 (%s) venceu!\n", cidade1);
+                } else {
+                    printf("Resultado: a carta 2 (%s) venceu!\n", cidade2);
+                }
+            }
+            break;
+
+        case 5:
+            printf("Batalha de densidade demográfica!\n");
+            printf("%s: %.2f hab/km²\n", cidade1, densidade1);
+            printf("%s: %.2f hab/km²\n\n", cidade2, densidade2);
+
+            if (densidade1 == densidade2) {
+                printf("Resultado: Empate!\n");
+            } else {
+                if (densidade1 < densidade2) {
+                    printf("Resultado: a carta 1 (%s) venceu!\n", cidade1);
+                } else {
+                    printf("Resultado: a carta 2 (%s) venceu!\n", cidade2);
+                }
+            }
+            break;
+
+        default:
+            printf("Erro: Opção inválida! Por favor, reinicie o jogo e escolha uma opção válida.\n");
+            break;
     }
     return 0;
 }
