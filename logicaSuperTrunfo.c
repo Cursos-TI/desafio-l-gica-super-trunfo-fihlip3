@@ -1,43 +1,77 @@
 #include <stdio.h>
-
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
+#include <windows.h>
 
 int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
 
+    // Carta 1
+    char estado1 = 'A';
+    char codigo1[] = "A01";
+    char cidade1[] = "Blumenau";
+    unsigned long int populacao1 = 338000; 
+    float area1 = 518.49;
+    float pib1 = 17.0; 
+    int pontosTuristicos1 = 15;
+    float densidade1;
+    float pibPerCapita1;
+
+    // Carta 2
+    char estado2 = 'B';
+    char codigo2[] = "B02";
+    char cidade2[] = "São Paulo";
+    unsigned long int populacao2 = 12250000;
+    float area2 = 1521.00;
+    float pib2 = 1066.82; 
+    int pontosTuristicos2 = 50;
+    float densidade2;
+    float pibPerCapita2;
+
+    // Cálculos
+    densidade1 = (float)populacao1 / area1;
+    pibPerCapita1 = (pib1 * 1000000000.0) / (float)populacao1;
+    densidade2 = (float)populacao2 / area2;
+    pibPerCapita2 = (pib2 * 1000000000.0) / (float)populacao2;
     
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
+    // Exibição dos dados da cidade
+    printf("\n================XXX================\n");
+    printf("          RESUMO DAS CARTAS\n");
+    printf("================XXX================\n\n");
 
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
+    printf("==x== Carta 1: ==x==\n");
+    printf("Estado: %c\n", estado1);
+    printf("Código: %s\n", codigo1);
+    printf("Nome da cidade: %s\n", cidade1);
+    printf("População: %d\n", populacao1);
+    printf("Área: %.2f km²\n", area1);
+    printf("PIB: %.2f bilhões de reais\n", pib1);
+    printf("Número de pontos turísticos: %d\n\n", pontosTuristicos1);
+    printf("Densidade populacional: %.2f hab/km²\n", densidade1);
+    printf("PIB per capita: %.2f reais\n", pibPerCapita1);
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+    printf("==x== Carta 2: ==x==\n");
+    printf("Estado: %c\n", estado2);
+    printf("Código: %s\n", codigo2);
+    printf("Nome da cidade: %s\n", cidade2);
+    printf("População: %d\n", populacao2);
+    printf("Área: %.2f km²\n", area2);
+    printf("PIB: %.2f bilhões de reais\n", pib2);
+    printf("Número de pontos turísticos: %d\n", pontosTuristicos2);
+    printf("Densidade populacional: %.2f hab/km²\n", densidade2);
+    printf("PIB per capita: %.2f reais\n", pibPerCapita2);
 
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
-
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
-
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
-
+    printf("\n================XXX================\n");
+    printf("          BATALHA DE CARTAS\n");
+    printf("================XXX================\n\n");
+    printf("Comparando a população das duas cidades...\n");
+    if (populacao1 > populacao2) {
+        printf("Resultado: Carta 1 (%s) venceu!\n", cidade1);
+    } 
+    else if (populacao2 > populacao1) {
+        printf("Resultado: Carta 2 (%s) venceu!\n", cidade2);
+    } 
+    else {
+        printf("Resultado: Empate! As duas cidades têm a mesma população.\n");
+    }
     return 0;
 }
